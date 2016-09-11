@@ -6,12 +6,14 @@
 
 #define BUFFER_SIZE 255
 
-struct list { 
+struct list 
+{ 
   char data[BUFFER_SIZE]; 
   struct list *next; 
 }; 
 
-int main() { 
+int main()
+{ 
   struct list *head = NULL; 
   struct list *head_ptr = NULL, *common_ptr = NULL, *buff_ptr = NULL; 
   int r = 0,dl = 0; 
@@ -22,13 +24,16 @@ int main() {
   while(r != 1) { 
     fgets(buffer, BUFFER_SIZE, stdin); 
 
-    if (head == NULL) { 
+    if (head == NULL) 
+    { 
       head_ptr = malloc(sizeof(struct list)); 
 	    strcpy(head_ptr->data, buffer);
       head_ptr->next = NULL; 
       head = head_ptr; 
       dl++; 
-    } else { 
+    } 
+      else 
+    { 
       common_ptr = malloc(sizeof(struct list)); 
       strcpy(common_ptr->data, buffer); 
       dl++; 
@@ -41,12 +46,13 @@ int main() {
     } 
 	
 
-    if (buffer[0] == '.') { 
+    if (buffer[0] == '.')
+    { 
       printf("\n"); 
       dl--; 
       r = 1; 
     } 
-  }
+}
 
   common_ptr = head; 
 
